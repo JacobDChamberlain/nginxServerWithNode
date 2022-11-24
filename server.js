@@ -1,5 +1,13 @@
 const express = require('express');
+const path = require('path');
 const app = express();
 const port = 3000;
-app.get('/', (req, res) => res.send("Hello, World!"));
+
+app.get('/', (req, res) => {
+    // res.send("Hello, World!");
+    // res.sendFile(path.join(__dirname, 'index.html'));
+    const index = path.join(__dirname, 'index.html');
+    res.sendFile(index);
+});
+
 app.listen(port, () => console.log(`Server listening on port ${port}`));
